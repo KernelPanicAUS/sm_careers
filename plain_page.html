@@ -7,7 +7,7 @@
 <title>Careers</title>
 
 <link rel="stylesheet" href="http://cdn.siteminder.com/wp-content/plugins/sitepress-multilingual-cms/res/css/language-selector.css?v=2.6.4.1" type="text/css" media="all"/>
-<link rel="stylesheet" type="text/css" media="all" href="http://cdn.siteminder.com/wp-content/themes/sitmin2/style.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="style.css"/>
 <link rel="stylesheet" type="text/css" media="all" href="jobadder.css"/>
 <script src="http://s.codepen.io/assets/libs/modernizr.js"></script>
 <script type="text/javascript">var icl_lang='en';var icl_home='http://www.siteminder.com/';</script>
@@ -96,18 +96,21 @@ jQuery(document).ready(function($){$('.country select').change(function(){$('.co
 	
 		     
      <div class="bodyContent">   
-   	   <div class="content_wrap"> 
-   	   	                          
-		            
-	
-				<h1>Careers</h1>
-<p>SiteMinder is a young innovative company that offers a diverse range of job opportunities. SiteMinder staff are exposed to an organisation that values its people and promotes leadership and innovation. We respect a balance between work and life commitments and believe a career with SiteMinder is more than just a job.</p>
+   	   <div class="content_wrap">
+         
+         <div class="header">
+           <h1 class="header_title">Careers</h1>
+           <p class="header_text">SiteMinder is a young innovative company that offers a diverse range of job opportunities. SiteMinder staff are exposed to an organisation that values its people and promotes leadership and innovation. We respect a balance between work and life commitments and believe a career with SiteMinder is more than just a job.</p>
+           <img src="./assets/careers-banner-bg.jpg" alt="" class="header_photo">
+         </div>
 
 <div class="container" style ="margin-left: 6px; margin-top: 27px;">
 
 	<ul class="tabs">
 		<li class="tab-link current" data-tab="tab-1">Sydney</li>
 		<li class="tab-link" data-tab="tab-2">London</li>
+    <li class="tab-link" data-tab="tab-3">Bankok</li>
+    <li class="tab-link" data-tab="tab-4">Dallas</li>
 		</ul>
 
 	<div id="tab-1" class="tab-content current">
@@ -119,6 +122,21 @@ jQuery(document).ready(function($){$('.country select').change(function(){$('.co
 	</div>
   
 </div><!-- container -->
+<dl style="display: inline-flex; margin-left: 9px;">
+                                    <dt>Category</dt>
+                                    <dd>
+                                        <select name="repDropDownList$ctl00$listClassification" onchange="javascript:setTimeout('__doPostBack(\'repDropDownList$ctl00$listClassification\',\'\')', 0)" id="repDropDownList_ctl00_listClassification" class="list">
+	<option value="">Any Category</option>
+	<option value="304419">IT support</option>
+	<option value="304420">IT Training</option>
+	<option value="304421">Development</option>
+	<option value="304423">Quality Assurance</option>
+	<option value="304424">Sales</option>
+	<option selected="selected" value="304428">Learning and development</option>
+
+</select>                                        
+                                    </dd>
+                                </dl>
 <script>var __links = document.querySelectorAll('a');for (var i = 0, l = __links.length; i < l; i++) { __links[i].addEventListener('click', function(e) {parent.window.postMessage(this.href, '*');}, false);}</script>
 <script>$(document).ready(function(){
 	
