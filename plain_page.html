@@ -104,30 +104,46 @@ jQuery(document).ready(function($){$('.country select').change(function(){$('.co
            <img src="./assets/careers-banner-bg.jpg" alt="" class="header_photo">
          </div>
 
-<div class="container" style ="margin-left: 6px; margin-top: 27px;">
+<div class="container" style ="margin-left: 0px; margin-top: 27px;height: 53px;">
 
 	<ul class="tabs">
-		<li class="tab-link current" data-tab="tab-1">Sydney</li>
-		<li class="tab-link" data-tab="tab-2">London</li>
-    <li class="tab-link" data-tab="tab-3">Bangkok</li>
-    <li class="tab-link" data-tab="tab-4">Dallas</li>
+		<li class="tab-link" id="data-tab">
+      <a href="?ja-classifications=298148">Sydney</a>
+    </li>
+		<li class="tab-link" id="data-tab">
+      <a href="?ja-classifications=304433">London</a>
+    </li>
+    <li class="tab-link" id="data-tab">Bangkok</li>
+    <li class="tab-link" id="data-tab">Dallas</li>
 		</ul>
 
 	<div id="tab-1" class="tab-content current">
-
-	</div>
+  </div>
 	<div id="tab-2" class="tab-content">
-    <script>    $('#tab-2').click(var x = location.href+"?ja-classifications=304433"; location.href = x;);</script>
-
+  </div>
+	<div id="tab-3" class="tab-content">
 	</div>
-	<div id="tab-3" class="tab-content current">
-
-	</div>
-	<div id="tab-4" class="tab-content current">
-
+	<div id="tab-4" class="tab-content">
 	</div>
   
 </div><!-- container -->
+<!--Generic function-->
+<script type="text/javascript">
+
+  
+
+function rewrite(value){
+  location.href = location.origin + location.pathname + "?ja-classifications="+value;
+  location.href = x;
+}
+// $(funtion(){
+//   $('tab-2').click(function(){
+//     alert("0");
+//     var x = location.href+"?ja-classifications=304433";
+//     location.href = x;
+//   });
+// });</script>
+
 <dl style="display: inline-flex; margin-left: 9px;">
                                     <dt>Category</dt>
                                     <dd>
