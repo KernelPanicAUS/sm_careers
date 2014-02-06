@@ -32,6 +32,12 @@ ul.tabs li.current{
   border-radius: 6px;
   font-size: 18px;
 }
+ul.tabs li.current a {
+	background: #18aad7;
+	color: white;
+  border-radius: 6px;
+  font-size: 18px;
+}
 .tab-content{
 	display: none;
 	background: transparent;
