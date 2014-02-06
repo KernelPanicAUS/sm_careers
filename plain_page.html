@@ -106,15 +106,19 @@ jQuery(document).ready(function($){$('.country select').change(function(){$('.co
 
 <div class="container" style ="margin-left: 0px; margin-top: 27px;height: 53px;">
 
-	<ul class="tabs">
-		<li class="tab-link" id="data-tab">
-      <a href="?ja-classifications=298148">Sydney</a>
+	<ul id="region-tabs" class="tabs">
+		<li id="1" class="tab-link" data-tab="tab-1">
+      <a href="?ja-classifications=298148">Australia/Pacific</a>
     </li>
-		<li class="tab-link" id="data-tab">
-      <a href="?ja-classifications=304433">London</a>
+		<li id="2" class="tab-link" data-tab="tab-2">
+      <a href="?ja-classifications=304433">Europe</a>
     </li>
-    <li class="tab-link" id="data-tab">Bangkok</li>
-    <li class="tab-link" id="data-tab">Dallas</li>
+    <li id="3" class="tab-link" data-tab="tab-3">
+      <a href="?ja-classifications=304433,304428">Asia</a>
+    </li>
+    <li id="4" class="tab-link" data-tab="tab-4">
+      <a href="?ja-classifications=304433,304428">Americas</a>
+    </li>
 		</ul>
 
 	<div id="tab-1" class="tab-content current">
@@ -127,61 +131,36 @@ jQuery(document).ready(function($){$('.country select').change(function(){$('.co
 	</div>
   
 </div><!-- container -->
-<!--Generic function-->
+
+<!-- Javascript injects class name into div when clicked -->
 <script type="text/javascript">
+$(function(){
+  $.each($("#region-tabs li"), function(){
+    var href = $(this).find("a").attr("href");
+    if (location.search == href) {
+     $(this).addClass("current");
+    }
+  });
 
-  
+});
 
-function rewrite(value){
-  location.href = location.origin + location.pathname + "?ja-classifications="+value;
-  location.href = x;
-}
-// $(funtion(){
-//   $('tab-2').click(function(){
-//     alert("0");
-//     var x = location.href+"?ja-classifications=304433";
-//     location.href = x;
-//   });
-// });</script>
-
-<dl style="display: inline-flex; margin-left: 9px;">
-                                    <dt>Category</dt>
-                                    <dd>
-                                        <select name="repDropDownList$ctl00$listClassification" onchange="javascript:setTimeout('__doPostBack(\'repDropDownList$ctl00$listClassification\',\'\')', 0)" id="repDropDownList_ctl00_listClassification" class="list">
-	<option value="">Any Category</option>
-	<option value="304419">IT support</option>
-	<option value="304420">IT Training</option>
-	<option value="304421">Development</option>
-	<option value="304423">Quality Assurance</option>
-	<option value="304424">Sales</option>
-	<option selected="selected" value="304428">Learning and development</option>
-
-</select>                                        
-                                    </dd>
-                                </dl>
-<script>var __links = document.querySelectorAll('a');for (var i = 0, l = __links.length; i < l; i++) { __links[i].addEventListener('click', function(e) {parent.window.postMessage(this.href, '*');}, false);}</script>
-<script>$(document).ready(function(){
-	
-	$('ul.tabs li').click(function(){
-		var tab_id = $(this).attr('data-tab');
-
-		$('ul.tabs li').removeClass('current');
-		$('.tab-content').removeClass('current');
-
-		$(this).addClass('current');
-		$("#"+tab_id).addClass('current');
-	})
-
-})//@ sourceURL=pen.js
 </script>
-
+<!--  -->
 <div id="ja-jobs-widget"></div>
 <script type="text/javascript">
 var _jaJobsSettings = {
   key: "5yuk2hutghpe3ajh5yiclewmpa",
   jobListSettings: {
     classificationsToExclude: [11713],
-    jobsPerPage: 30
+    jobsPerPage: 30,
+    noJobsContent: "SiteMinder are not actively recruiting in this team at the moment, but will be soon. Why not use the expressions of interest section above, so that we can contact you about future opportunities."
+  },
+  jobSearchSettings: {
+    // showSearchForm: true,
+    classificationsToExclude: [11714,11712]
+    // showKeywordSearch: false,
+    // showSearchButton: false,
+    // searchButtonText: "Submit"
   }
 };
 </script>

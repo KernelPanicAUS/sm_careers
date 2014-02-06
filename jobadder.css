@@ -61,6 +61,7 @@ ul.tabs li.current{
 /* Forms */
 .ja-form {
 	margin-bottom: 3em;
+  margin-left: 1em;
 }
 
 .ja-form .ja-field-container {
