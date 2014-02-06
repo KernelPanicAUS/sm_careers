@@ -107,17 +107,17 @@ jQuery(document).ready(function($){$('.country select').change(function(){$('.co
 <div class="container" style ="margin-left: 0px; margin-top: 27px;height: 53px;">
 
 	<ul id="region-tabs" class="tabs">
-		<li id="1" class="tab-link" data-tab="tab-1">
-      <a class="tab" href="?ja-classifications=298148">Australia/Pacific</a>
+		<li class="tab-link" data-tab="tab-1">
+      <a id="298148" class="tab" href="?ja-classifications=298148">Australia/Pacific</a>
     </li>
 		<li id="2" class="tab-link" data-tab="tab-2">
-      <a class="tab-current" href="?ja-classifications=304433">Europe</a>
+      <a id="304433" class="tab-current" href="?ja-classifications=304433">Europe</a>
     </li>
     <li id="3" class="tab-link" data-tab="tab-3">
-      <a class="tab" href="?ja-classifications=304433,304428">Asia</a>
+      <a id="304438" class="tab" href="?ja-classifications=304438">Asia</a>
     </li>
     <li id="4" class="tab-link" data-tab="tab-4">
-      <a class="tab" href="?ja-classifications=304433,304429">Americas</a>
+      <a id="304439" class="tab" href="?ja-classifications=304439">Americas</a>
     </li>
 		</ul>
 
@@ -131,22 +131,53 @@ jQuery(document).ready(function($){$('.country select').change(function(){$('.co
 	</div>
   
 </div><!-- container -->
-
-<!-- Javascript injects class name into div when clicked -->
+<!-- Custom dropdown -->
+<select id="job-categories">
+  <option value="304419">IT support</option>
+  <option value="304420">IT Training</option>
+  <option value="304421">Development</option>
+  <option value="304423">Quality Assurance</option>
+  <option value="304424">Sales</option>
+  <option value="304428">Learning and development</option>
+</select>
+<!--End of custom dropdown  -->
+<!-- SiteMinder script, Sets CSS class for current tab -->
 <script type="text/javascript">
 $(function(){
-  $.each($("#region-tabs li"), function(){
-    var href = $(this).find("a").attr("href");
-    if (location.search == href) {
-     $(this).addClass("current");
+  
+  // Get the jobadder codes (region, category)
+  var allCodeString = location.search.split("=")[1];
+  var codes = allCodeString.split(",");
+  
+  console.log(codes);
+  
+  // Select categories
+  $.each(codes, function() {
+    var code = this + "";
+    
+    $("#job-categories").val(code);
+    
+    $.each($("#region-tabs li"), function() {
+      var aElem = $(this).find("a")[0];
+      if ($(aElem).attr("id") == code) {
+        $(this).addClass("current");
+      }
+    });
+    
+  });
+  // Select job category
+  $("#job-categories").change(function() {
+    if ($(this).val()) {
+      window.location = location.search + "," + $(this).val();
     }
   });
-
 });
 
 </script>
-<!--  -->
-<div id="ja-jobs-widget"></div>
+<!-- End of JS for current tab -->
+
+<!-- Jobadder Widget -->
+<div id="ja-jobs-widget" style="margin-top: 30px;"></div>
 <script type="text/javascript">
 var _jaJobsSettings = {
   key: "5yuk2hutghpe3ajh5yiclewmpa",
@@ -154,17 +185,11 @@ var _jaJobsSettings = {
     classificationsToExclude: [11713],
     jobsPerPage: 30,
     noJobsContent: "SiteMinder are not actively recruiting in this team at the moment, but will be soon. Why not use the expressions of interest section above, so that we can contact you about future opportunities."
-  },
-  jobSearchSettings: {
-    // showSearchForm: true,
-    classificationsToExclude: [11714,11712]
-    // showKeywordSearch: false,
-    // showSearchButton: false,
-    // searchButtonText: "Submit"
   }
 };
 </script>
 <script src="//jobadder.com/widgets/v1/jobs.min.js" type="text/javascript"></script>
+<!-- End of Jobadder Widget -->
 
 		<div id="MainBody_body_inbottomrow">  
 			
