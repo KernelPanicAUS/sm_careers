@@ -3198,7 +3198,12 @@ div#lang_sel ul li { height: 24px !important; display: table;}
 .header{
   background-color: #18aad7;
   border-radius: 3px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
   height: 241px;
+  width: 964px;
+  margin-bottom: 20px;
+  margin-top:-20px;
 }
 .header_title{
   float: right;
@@ -3219,6 +3224,7 @@ div#lang_sel ul li { height: 24px !important; display: table;}
 .header_photo{
   border-radius: 3px;
   position: relative;
+  border-bottom-left-radius: 5px;
   top: -146px;
   left: -1px;
 }
