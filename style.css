@@ -3208,16 +3208,16 @@ div#lang_sel ul li { height: 24px !important; display: table;}
 .header_title{
   float: right;
   position: relative;
-  left: -310px;
-  top: 22px;
+  left: -294px;
+  top: 28px;
   color: white;
   }
 .header_text{
   float: right;
   width: 339px;
   position: relative;
-  right: -38px;
-  bottom: -56px;
+  right: -51px;
+  bottom: -63px;
   color: white;
   font-size: 13px;
   }

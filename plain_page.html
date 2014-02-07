@@ -131,12 +131,15 @@ jQuery(document).ready(function($){$('.country select').change(function(){$('.co
 <!-- Custom dropdown -->
 <label for="job-categories">Category</label>
 <select id="job-categories" style="margin-top:15px">
-  <option value="304419">IT support</option>
+  <option value="">All Jobs</option>
+  <optgroup label="Categories">
+  <option value="304419">IT Support</option>
   <option value="304420">IT Training</option>
   <option value="304421">Development</option>
   <option value="304423">Quality Assurance</option>
   <option value="304424">Sales</option>
   <option value="304428">Learning and Development</option>
+  </optgroup>
 </select>
 <!--End of custom dropdown  -->
 <!-- SiteMinder script, Sets CSS class for current tab -->
@@ -147,30 +150,32 @@ $(function(){
   var allCodeString = location.search.split("=")[1];
   var codes = allCodeString.split(",");
   
-  // Select categories
+  // Highlight the selected region and job category on the page
   $.each(codes, function() {
     var code = this + "";
-    
+
     $("#job-categories").val(code);
-    
+
     $.each($("#region-tabs li"), function() {
       var aElem = $(this).find("a")[0];
       if ($(aElem).attr("id") == code) {
         $(this).addClass("current");
       }
     });
-    
   });
-  // Select job category
+  
+  if ($("#job-categories").val() == null) {
+    $("#job-categories").val("");
+  };
+  
+  // Select job category event handler
   $("#job-categories").change(function() {
     if ($(this).val()) {
-      console.log($(this).val());
-      if (location.search.split(",")[1]) { //if second value of location search, rewrite the url, replacing the second param with the new param.      
-        window.location = location.origin + location.pathname + location.search.split(",")[0] + "," + $(this).val();
-      }
-      else {
-      window.location = location.search + "," + $(this).val();
+      var urlParams = $("#region-tabs li.current a").attr("href") + "," + $(this).val();
+      window.location = urlParams;
     }
+    else {
+      window.location = $("#region-tabs li.current a").attr("href");
     }
   });
 });
