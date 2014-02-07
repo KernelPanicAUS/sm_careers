@@ -133,12 +133,13 @@ jQuery(document).ready(function($){$('.country select').change(function(){$('.co
 </div><!-- container -->
 <!-- Custom dropdown -->
 <select id="job-categories">
+  <option value=""></option>
   <option value="304419">IT support</option>
   <option value="304420">IT Training</option>
   <option value="304421">Development</option>
   <option value="304423">Quality Assurance</option>
   <option value="304424">Sales</option>
-  <option value="304428">Learning and development</option>
+  <option value="304428">Learning and Development</option>
 </select>
 <!--End of custom dropdown  -->
 <!-- SiteMinder script, Sets CSS class for current tab -->
@@ -148,8 +149,6 @@ $(function(){
   // Get the jobadder codes (region, category)
   var allCodeString = location.search.split("=")[1];
   var codes = allCodeString.split(",");
-  
-  console.log(codes);
   
   // Select categories
   $.each(codes, function() {
@@ -168,7 +167,13 @@ $(function(){
   // Select job category
   $("#job-categories").change(function() {
     if ($(this).val()) {
+      console.log($(this).val());
+      if (location.search.split(",")[1]) { //if second value of location search, rewrite the url, replacing the second param with the new param.      
+        window.location = location.origin + location.pathname + location.search.split(",")[0] + "," + $(this).val();
+      }
+      else {
       window.location = location.search + "," + $(this).val();
+    }
     }
   });
 });
